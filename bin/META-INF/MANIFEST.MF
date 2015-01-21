@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1421844251573
-Build-Jdk: 1.7.0_51
-Built-By: bertswinnen
+Bnd-LastModified: 1421846291173
+Build-Jdk: 1.7.0_71
+Built-By: dietergy
 Bundle-Description: docx4j is a library which helps you to work with the
   Office Open		XML file format as used in docx		documents, pptx presenta
  tions, and xlsx spreadsheets.
