@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><metadata>
+  <groupId>pdf-renderer</groupId>
+  <artifactId>pdf-renderer</artifactId>
+  <version>0.2007</version>
+  <versioning>
+    <versions>
+      <version>0.2007</version>
+      <version>0.2009.0324</version>
+    </versions>
+    <lastUpdated>20090324104200</lastUpdated>
+  </versioning>
+</metadata>

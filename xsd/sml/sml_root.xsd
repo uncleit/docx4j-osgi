@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema
+	targetNamespace="http://schemas.openxmlformats.org/spreadsheetml/2006/main"
+	elementFormDefault="qualified"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:version="2.1">
+	
+<!--
+	
+WHICH VERSION?
+
+This is based on ECMA-376, fourth edition 
+	
+USAGE INSTRUCTIONS
+	  
+  To generate java classes, you need xjc, from Java 6 or the JAXB 2.1 RI.
+  The Java 6 version won't let us use ppp?
+	
+	
+  To generate the classes (from the same directory)	
+			
+ 	 sh ~/jaxb-ri-20071219/bin/xjc.sh -classpath ~/workspace/docx4j/m2/org/jvnet/jaxb2_commons/ppp/parent-pointer-plugin/1.0/parent-pointer-plugin-1.0.jar -Xparent-pointer sml_root.xsd -d ~/workspace/docx4j/src/xlsx4j/java -no-header -target 2.0
+
+ 	 sh ~/jaxb-ri-20071219/bin/xjc.sh sml_root.xsd -d tmp -no-header -target 2.0
+
+	 	 
+  jaxb-ri-20071219 is 2.1.6; jaxb-ri-20070917 works equally well.
+  
+	cd to the directory containing the new sources
+	
+	Then add the copyright notice:
+	
+	 sed -s -i -f script *.java
+	 
+
+Windowa \Java\jaxb-ri-2.2.6\bin\xjc -classpath \Java\parent-pointer-plugin-1.0.jar -Xparent-pointer sml_root.xsd -d tmp
+ -no-header -target 2.0
+parsing a schema...
+compiling a schema...
+Exception in thread "main" java.lang.IllegalArgumentException: trying to create the same field twice: parent
+	
+That's because there is a name collision in:
+
+  org.xlsx4j.sml.CTCalculatedMember
+  org.xlsx4j.sml.CTPCDKPI	
+
+You can use 
+
+\Java\jaxb-ri-2.2.6\bin\xjc  sml_root.xsd -d tmp -no-header -target 2.0	
+	
+or better, you can use ppp 1.2, 
+
+\Java\jaxb-ri-20110601\bin\xjc  -classpath \Java\parent-pointer-plugin-1.2.jar -Xparent-pointer sml_root.xsd -d tmp  -no-header -target 2.0
+
+(still a bit of manual handling with that though)
+	
+REVISION HISTORY
+
+2013 01 20 - moved to ECMA 376 4ed; add parent pointer
+2013 01 20 - added @xml:space in shared strings
+2010 09 06 - First compiled and added to docx4j
+
+	 Used &lt;jaxb:property> to resolve several Property xxx is already defined conflicts. 
+	
+	
+-->
+ 
+  <!--  DML stuff required by SML -->
+  <xsd:import namespace="http://schemas.openxmlformats.org/drawingml/2006/main" schemaLocation="../dml/dml__ROOT.xsd" />
+
+  <xsd:include schemaLocation="sml_ECMA376_4ed_transitional.xsd" />
+  
+</xsd:schema>

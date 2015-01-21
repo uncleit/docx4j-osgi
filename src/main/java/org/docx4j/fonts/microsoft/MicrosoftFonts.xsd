@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:version="2.0">
+
+<!-- 
+    Copyright 2007-2013, Plutext Pty Ltd.
+    
+    This file is part of docx4j.
+
+    docx4j is licensed under the Apache License, Version 2.0 (the "License"); 
+    you may not use this file except in compliance with the License. 
+
+    You may obtain a copy of the License at 
+
+        http://www.apache.org/licenses/LICENSE-2.0 
+
+    Unless required by applicable law or agreed to in writing, software 
+    distributed under the License is distributed on an "AS IS" BASIS, 
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+    See the License for the specific language governing permissions and 
+    limitations under the License.
+    
+  -->    
+ 
+ <!--
+ jharrop@jharrop-490:~/workspace200711/docx4j-001/src/main/java/org/docx4j/fonts/microsoft$
+  
+             sh ~/jaxb/jaxb-ri-20070917/bin/xjc.sh MicrosoftFonts.xsd -d ~/workspace200711/docx4j-001/src/main/java/ -no-header  -target 2.0
+ 
+ jharrop@jharrop-490:~/workspace200711/docx4j-001/src/main/java/org/docx4j/fonts$ 
+ 
+ 			sed -s -i -f script microsoft/*.java
+ -->
+ 
+    <xs:annotation>
+        <xs:appinfo>
+            <xs:appinfo>
+                <jaxb:globalBindings>
+                </jaxb:globalBindings>
+            </xs:appinfo>
+            <jaxb:schemaBindings>
+                <jaxb:package name="org.docx4j.fonts.microsoft"/>
+            </jaxb:schemaBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+	<xs:element name="MicrosoftFonts">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="font">
+					<xs:complexType>
+						<xs:sequence minOccurs="0">
+							<xs:element minOccurs="0" name="bold">
+								<xs:complexType>
+									<xs:attribute name="filename" type="xs:string"
+										use="required" />
+									<xs:attribute name="mac" type="xs:string" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="italic">
+								<xs:complexType>
+									<xs:attribute name="filename" type="xs:string"
+										use="required" />
+									<xs:attribute name="mac" type="xs:string" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="bolditalic">
+								<xs:complexType>
+									<xs:attribute name="filename" type="xs:string"
+										use="required" />
+									<xs:attribute name="mac" type="xs:string" use="optional" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="filename" type="xs:string" use="required" />
+						<xs:attribute name="mac" type="xs:string" use="optional" />
+						<xs:attribute name="coreWebFont" type="xs:boolean"
+							use="optional" />
+						<xs:attribute name="clearTypeCollection" type="xs:boolean"
+							use="optional" />
+						<xs:attribute name="secondary" type="xs:boolean" use="optional" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
