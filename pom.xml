@@ -248,7 +248,7 @@
 					<instructions>
 						<Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
 						<Bundle-Name>${pom.artifactId}</Bundle-Name>
-						<Bundle-Version>1.0.0</Bundle-Version>
+						<Bundle-Version>${pom.version}</Bundle-Version>
 						<Import-Package>
 							com.google.common.cache;version="[17.0,18)";resolution:=optional,
 							com.sun.org.apache.xerces.internal.util;resolution:=optional,
@@ -297,17 +297,46 @@
 							org.apache.xmlgraphics.image.loader.cache;resolution:=optional,
 							org.apache.xmlgraphics.image.loader.impl;resolution:=optional,
 							org.apache.xmlgraphics.java2d;resolution:=optional,
-							org.plutext.jaxb.svg11;resolution:=optional,
+							org.plutext.jaxb.svg11,
 							org.plutext.jaxb.xmldsig;resolution:=optional,
 							org.plutext.jaxb.xslfo;resolution:=optional,
-							org.slf4j;version="[1.7,2)";resolution:=optional,
+							org.slf4j;version="[1.6,2)";resolution:=optional,
 							org.w3c.dom,
 							org.w3c.dom.css,
 							org.w3c.dom.traversal,
 							org.xml.sax,
-							org.xml.sax.helpers,
-							be.telenet.test;resolution:=optional
+							org.xml.sax.helpers
 						</Import-Package>
+                        <Export-Package>
+                            com.topologi.diffx.xml,
+                            com.topologi.diffx.xml.esc,
+                            com.topologi.diffx.event,
+
+                            com.google.common.cache,
+                            com.sun.org.apache.xerces.internal.util,
+                            com.sun.xml.bind.marshaller,
+                            com.sun.xml.internal.bind.marshaller,
+
+                            net.arnx.wmf2svg.gdi,
+                            net.arnx.wmf2svg.gdi.svg,
+                            net.arnx.wmf2svg.gdi.wmf,
+                            net.engio.mbassy.bus,
+                            org.antlr.runtime,
+                            org.antlr.stringtemplate,
+                            org.antlr.stringtemplate.language,
+                            org.apache.avalon.framework.configuration,
+
+                            org.apache.xalan.extensions,
+                            org.apache.xmlgraphics.fonts,
+                            org.apache.xmlgraphics.image.loader,
+                            org.apache.xmlgraphics.image.loader.cache,
+                            org.apache.xmlgraphics.image.loader.impl,
+                            org.apache.xmlgraphics.java2d,
+
+                            org.plutext.jaxb.*,
+                            org.docx4j.*
+                        </Export-Package>
+                        <!--<Embed-Dependency>jaxb-svg11;scope=compile|runtime</Embed-Dependency>-->
 					</instructions>
 				</configuration>
 			</plugin>
@@ -494,21 +523,21 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.5</version>
+			<version>1.6.4</version>
 		</dependency>
 
 		<!--  instead of FOP's commons-logging -->		
 		<dependency>
 		    <groupId>org.slf4j</groupId>
 		    <artifactId>jcl-over-slf4j</artifactId>
-		    <version>1.7.5</version>
+		    <version>1.6.4</version>
 		</dependency>		
 
 		<!--  .. default to log4j implementation, just like docx4j 2.8.1 and earlier.  -->
 		 <dependency>
 		  <groupId>org.slf4j</groupId>
 		  <artifactId>slf4j-log4j12</artifactId>
-		  <version>1.7.5</version>
+		  <version>1.6.4</version>
 		</dependency>		
 		<dependency>
 			<groupId>log4j</groupId>
@@ -672,6 +701,9 @@
    			<!-- http://dev.plutext.org/forums/docx-java-f6/dependency-management-improvements-t739.html -->
    			<scope>provided</scope>
    		</dependency>
+
+
+
 
 		<dependency>
     		<groupId>org.antlr</groupId>
